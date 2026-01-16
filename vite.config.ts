@@ -3,14 +3,11 @@ import react from '@vitejs/plugin-react';
 
 export default defineConfig({
   plugins: [react()],
+  // Al estar los archivos en la raíz, no necesitamos configurar rollupOptions.input manualmente.
+  // Vite encontrará el index.html por defecto.
   build: {
     outDir: 'dist',
-    sourcemap: false,
-    rollupOptions: {
-      input: {
-        main: './index.html',
-      },
-    },
+    sourcemap: false
   },
   server: {
     host: true,
